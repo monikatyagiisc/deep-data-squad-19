@@ -27,6 +27,7 @@ We fine-tune a transformer-based model (BERT) to accurately detect user intent a
 
 ## 📂 Repository Structure
 
+```
 deep-data-squad-19/
 │
 ├── multilingual_intent_classification.ipynb  # Main notebook
@@ -36,8 +37,10 @@ deep-data-squad-19/
 │   ├── spanish.csv
 │   ├── french.csv
 │   └── hindi.csv
+├── reports/								#
+├── models/        
 └── README.md                                # Project documentation
-
+```
 ---
 
 ## 🔧 Installation
@@ -124,12 +127,3 @@ Special thanks to:
 	•	Jupyter & open-source community
 
 ⸻
-
-
-
-Let me know if you'd like this with:
-- GitHub badges (Python version, license, etc.)
-- Links to a dataset source
-- Sample output or screenshots
-
-I can generate those too.
