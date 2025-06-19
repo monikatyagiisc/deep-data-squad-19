@@ -50,18 +50,27 @@ deep-data-squad-19/
 ```bash
 git clone https://github.com/your-username/deep-data-squad-19.git
 cd deep-data-squad-19
-
-	2.	Create a virtual environment and install dependencies:
-
-python -m venv venv
-source venv/bin/activate        # On Windows use `venv\Scripts\activate`
-pip install -r requirements.txt
+```
 
 
+2.	Create a virtual environment and install dependencies:
+•	On Linux/macOS:
+	```bash
+	python -m venv venv
+	source venv/bin/activate  
+	```
+    •	On Windows use 
+	```bash
+	venv\Scripts\activate
+	```
+3.	Install required dependencies:
+	```bash
+	pip install -r requirements.txt
+	```
 
-⸻
+---
 
-🚀 Usage
+## 🚀 Usage
 
 Launch Jupyter Notebook and run the classification pipeline:
 
@@ -75,9 +84,8 @@ The notebook includes steps for:
 
 Ensure your dataset files (english.csv, spanish.csv, etc.) are placed inside the data/ folder.
 
-⸻
 
-📊 Evaluation Metrics
+## 📊 Evaluation Metrics
 
 We use the following performance metrics to evaluate the model for each language:
 	•	✅ Accuracy
@@ -87,9 +95,8 @@ We use the following performance metrics to evaluate the model for each language
 
 This helps assess mBERT’s cross-lingual understanding and intent detection capability.
 
-⸻
 
-🧪 Dependencies
+## 🧪 Dependencies
 
 The project uses the following libraries:
 	•	transformers
@@ -101,9 +108,8 @@ The project uses the following libraries:
 
 Full list in: requirements.txt
 
-⸻
 
-🤝 Contributors
+## 🤝 Contributors
 	•	Abhishek Gupta
 	•	Bharat Karthi R K
     •	Gayathri ramasubramaniyam
@@ -111,19 +117,18 @@ Full list in: requirements.txt
     •	Indrerjit Singh Chahuan
 	•	Monika Tyagi
 
-⸻
 
-📜 License
+
+## 📜 License
 
 This project is for educational and academic use. For any external or commercial usage, please contact the authors.
 
-⸻
 
-🌐 Acknowledgments
+
+## 🌐 Acknowledgments
 
 Special thanks to:
 	•	Hugging Face 🤗 for the transformers library
 	•	BERT multilingual pre-trained models
 	•	Jupyter & open-source community
 
-⸻
