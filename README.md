@@ -38,8 +38,8 @@ deep-data-squad-19/
 │   ├── spanish.csv
 │   ├── french.csv
 │   └── hindi.csv
-├── reports/			 # Folder for evaluation reports
-├── models/        		 # Folder for saved model checkpoints
+├── reports/             # Folder for evaluation reports
+├── models/              # Folder for saved model checkpoints
 │   └── mbart_model.pth  # Fine-tuned mBERT model
 └── README.md            # Project documentation
 ```
