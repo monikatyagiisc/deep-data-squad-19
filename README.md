@@ -32,16 +32,16 @@ deep-data-squad-19/
 │
 ├── code/                                    
 │   ├── multilingual_intent_classification.ipynb # Main notebook
-├── requirements.txt                         	 # Python dependencies
-├── data/                                        # Folder for multilingual datasets
+├── requirements.txt     # Python dependencies
+├── data/                # Folder for multilingual datasets
 │   ├── english.csv
 │   ├── spanish.csv
 │   ├── french.csv
 │   └── hindi.csv
-├── reports/								    # Folder for evaluation reports
-├── models/        								# Folder for saved model checkpoints
-│   └── mbart_model.pth                          # Fine-tuned mBERT model
-└── README.md                                   # Project documentation
+├── reports/			 # Folder for evaluation reports
+├── models/        		 # Folder for saved model checkpoints
+│   └── mbart_model.pth  # Fine-tuned mBERT model
+└── README.md            # Project documentation
 ```
 ---
 
