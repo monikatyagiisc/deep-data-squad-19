@@ -30,16 +30,18 @@ We fine-tune a transformer-based model (BERT) to accurately detect user intent a
 ```
 deep-data-squad-19/
 │
-├── multilingual_intent_classification.ipynb  # Main notebook
-├── requirements.txt                         # Python dependencies
-├── data/                                    # Folder for multilingual datasets
+├── code/                                    
+│   ├── multilingual_intent_classification.ipynb # Main notebook
+├── requirements.txt                         	 # Python dependencies
+├── data/                                        # Folder for multilingual datasets
 │   ├── english.csv
 │   ├── spanish.csv
 │   ├── french.csv
 │   └── hindi.csv
-├── reports/								#
-├── models/        
-└── README.md                                # Project documentation
+├── reports/								    # Folder for evaluation reports
+├── models/        								# Folder for saved model checkpoints
+│   └── mbart_model.pth                          # Fine-tuned mBERT model
+└── README.md                                   # Project documentation
 ```
 ---
 
