@@ -1,5 +1,6 @@
-
 \documentclass{ecai}
+
+% Packages
 \usepackage{graphicx}
 \usepackage{latexsym}
 \usepackage{booktabs}
@@ -9,6 +10,7 @@
 \usepackage{float}
 \raggedbottom
 
+% Title and Author
 \title{Cross-Lingual Intent Classification using BERT: A Multilingual Approach}
 
 \author{
@@ -20,11 +22,13 @@ Harikrishnan C, Indrerjit Singh Chahuan, Monika Tyagi\\
 \begin{document}
 \maketitle
 
+% Introduction
 \section{Introduction}
 With conversational AI becoming ubiquitous, the ability to understand user intent across multiple languages has emerged as a cornerstone for intelligent virtual agents. Applications such as multilingual chatbots, voice assistants, and automated support systems demand high accuracy in intent classification regardless of the language used. Traditional monolingual models are insufficient in today's globally connected world, hence the need for multilingual approaches.
 
 In this project, we employ the multilingual BERT (mBERT) model to perform intent classification across English, Spanish, French, and Hindi. Our objective is to overcome challenges such as linguistic diversity, limited annotated data in non-English languages, and vocabulary variations across domains. A robust cross-lingual model allows unified deployment across regions, thus reducing development costs while improving user experience.
 
+% System Architecture
 \section{System Architecture}
 Our proposed architecture uses the transformer-based mBERT model as a backbone for feature extraction. Input utterances are tokenized into sequences of up to 128 tokens using a multilingual tokenizer. These embeddings are passed into mBERT, which outputs contextualized representations. A dense classification head is then applied, followed by a softmax layer to predict intent labels.
 
@@ -36,8 +40,9 @@ The model architecture is modular and adaptable, allowing easy integration of ad
 \caption{Model architecture using mBERT and classifier head}
 \end{figure}
 
-
+% Methodology
 \section{Methodology}
+
 \subsection{Data Preparation}
 \begin{itemize}
     \item \textbf{Languages:} English, Hindi, Spanish, and French (from a broader set of 11 languages).
@@ -53,9 +58,9 @@ The model architecture is modular and adaptable, allowing easy integration of ad
 \toprule
 Model & LR & Batch & Epochs & Scheduler & Early Stop & Warm-up \\
 \midrule
-Baseline & 2e-5 & 32 & 3 & No & No & No \\
-Improved & 3e-5 & 16 & 5 & Yes & Patience=2 & No \\
-Extra-Tuned & 2e-5 & 16 & 7 & Strong & Patience=3 & Yes \\
+Baseline     & 2e-5 & 32 & 3 & No    & No          & No  \\
+Improved     & 3e-5 & 16 & 5 & Yes   & Patience=2  & No  \\
+Extra-Tuned  & 2e-5 & 16 & 7 & Strong& Patience=3  & Yes \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -75,6 +80,104 @@ We use the \texttt{BertForSequenceClassification} model with 60 intent classes. 
     \item Stage 3: 51 intents (F1 = 98.01\%)
 \end{enumerate}
 
+% Model Performance Analysis
+\section{Model Performance Analysis}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{training_matrices_1.jpeg}
+        \caption{Validation Recall and F1-Score}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{training_matrices_2.jpeg}
+        \caption{Validation Accuracy and Precision}
+    \end{subfigure}
+    \caption{Validation metrics comparison across configurations}
+    \label{fig:val_metrics}
+\end{figure}
+
+\subsection{Overall Performance Summary}
+\begin{itemize}
+    \item Initial Performance: 96.88\% F1-score (Stage 1 baseline)
+    \item Peak Performance: 98.71\% F1-score (Stage 2 optimal checkpoint)
+    \item Final Model Performance: 98.01\% F1-score (Stage 3 complete system)
+    \item Total Improvement: +1.83\% F1-score from baseline to peak
+    \item Training Consistency: 99.2\% consistency score across all models
+\end{itemize}
+
+\subsection{Stage-wise Performance Analysis}
+
+\textbf{Stage 1: Professional Training Foundation}
+\begin{itemize}
+    \item Models Trained: 1
+    \item Best Performance: 96.88\% F1-score
+    \item Standard Deviation: 0.0000
+    \item Technical Focus: XLM-RoBERTa base model fine-tuning with 25 intent categories and 5 languages
+    \item Key Achievements:
+    \begin{itemize}
+        \item Successful transformer fine-tuning
+        \item Baseline intent taxonomy established
+        \item Initial multilingual capabilities
+        \item Optimization integration validated
+    \end{itemize}
+\end{itemize}
+
+\textbf{Stage 2: Ultimate Pipeline Development}
+\begin{itemize}
+    \item Models Trained: 8
+    \item Best Performance: 98.71\% F1-score
+    \item Average Performance: 98.50\% F1-score
+    \item Standard Deviation: 0.0018
+    \item Technical Focus: Progressive language expansion
+    \item Performance Distribution:
+    \begin{itemize}
+        \item Language Validation Phase: 98.58–98.71\%
+        \item Asian Language Addition: 98.48–98.65\%
+        \item Global Coverage: 98.08–98.50\%
+    \end{itemize}
+\end{itemize}
+
+\textbf{Stage 3: Optimal Continuation and Intent Expansion}
+\begin{itemize}
+    \item Models Trained: 16
+    \item Best Performance: 98.01\% F1-score
+    \item Average Performance: 97.53\% F1-score
+    \item Standard Deviation: 0.0075
+    \item Technical Focus: Intent expansion (25 to 51)
+    \item Optimization Phases:
+    \begin{itemize}
+        \item Intent Expansion: 94.97–97.76\%
+        \item Label Smoothing: 97.77–97.79\%
+        \item Fine Tuning: 97.81–97.92\%
+        \item Final Polish: 97.87–98.01\%
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{training_matrices_3.jpeg}
+        \caption{Training and Validation Loss across Epochs}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{final_trainig.jpeg}
+        \caption{Step-wise and Cumulative Loss (extra\_tuned)}
+    \end{subfigure}
+    \caption{Loss metrics across different stages of training}
+    \label{fig:loss_metrics}
+\end{figure}
+
+\subsection{Performance Grade Distribution}
+\begin{itemize}
+    \item A+ (Excellent): 23 models (92\%)
+    \item A (Very Good): 2 models (8\%)
+    \item All models achieved A-grade or above
+\end{itemize}
+
+% Experiments and Results
 \section{Experiments and Results}
 \begin{itemize}
     \item \textbf{Efficiency:} Early stopping reduced unnecessary training.
@@ -87,11 +190,11 @@ We use the \texttt{BertForSequenceClassification} model with 60 intent classes. 
 \caption{F1 Scores across Languages}
 \begin{tabular}{lcccc|c}
 \toprule
-Config & English & Hindi & Spanish & French & Avg. F1 \\
+Config        & English & Hindi & Spanish & French & Avg. F1 \\
 \midrule
-Baseline & 88.3\% & 82.1\% & 86.7\% & 85.4\% & 85.6\% \\
-Improved & 89.5\% & 83.9\% & 87.9\% & 86.8\% & 87.0\% \\
-Extra-Tuned & 89.8\% & 84.5\% & 88.2\% & 87.1\% & 87.4\% \\
+Baseline      & 88.3\%  & 82.1\% & 86.7\%  & 85.4\% & 85.6\%  \\
+Improved      & 89.5\%  & 83.9\% & 87.9\%  & 86.8\% & 87.0\%  \\
+Extra-Tuned   & 89.8\%  & 84.5\% & 88.2\%  & 87.1\% & 87.4\%  \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -110,6 +213,7 @@ We fine-tuned mBERT on a curated multilingual dataset containing annotated utter
 \caption{Model training setup and tuning strategy}
 \end{figure}
 
+% Evaluation and Results
 \section{Evaluation and Results}
 The model was evaluated using standard classification metrics including accuracy, precision, recall, and F1-score. Results show strong generalization across languages, with English achieving the highest scores followed closely by Spanish, French, and Hindi.
 
@@ -120,10 +224,10 @@ The model was evaluated using standard classification metrics including accuracy
 \toprule
 Language & Accuracy & Precision & Recall & F1-score \\
 \midrule
-English  & 97.5\% & 96.8\% & 97.3\% & 97.0\% \\
-Spanish  & 96.1\% & 95.6\% & 95.9\% & 95.7\% \\
-French   & 95.8\% & 95.0\% & 95.4\% & 95.2\% \\
-Hindi    & 94.5\% & 94.0\% & 93.8\% & 93.9\% \\
+English  & 97.5\%   & 96.8\%    & 97.3\% & 97.0\% \\
+Spanish  & 96.1\%   & 95.6\%    & 95.9\% & 95.7\% \\
+French   & 95.8\%   & 95.0\%    & 95.4\% & 95.2\% \\
+Hindi    & 94.5\%   & 94.0\%    & 93.8\% & 93.9\% \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -134,8 +238,9 @@ Hindi    & 94.5\% & 94.0\% & 93.8\% & 93.9\% \\
 \caption{F1-score comparison across languages}
 \end{figure}
 
-
+% Results and Discussion
 \section{Results and Discussion}
+
 \subsection{Performance Trends}
 \begin{itemize}
     \item Stage 2 reached the highest performance level at 98.71\% F1 score.
@@ -150,12 +255,14 @@ Hindi    & 94.5\% & 94.0\% & 93.8\% & 93.9\% \\
     \item \textbf{Three-Phase Optimization:} Involved label smoothing, followed by fine-tuning, and concluding with polishing.
 \end{itemize}
 
+% Limitations
 \section{Limitations}
 \begin{itemize}
     \item Only four languages were examined in the fine-tuning experiment.
     \item Intent consistency was presumed across all languages; however, semantic variation continues to pose a challenge.
 \end{itemize}
 
+% Conclusion
 \section{Conclusion}
 We illustrate that structured fine-tuning and progressive expansion techniques greatly enhance the performance of multilingual intent classification. Our multilingual classifier accommodates 11 languages and 51 intents, achieving an F1 score of 98.01\%, by employing adaptive learning rate scheduling, robust optimization, and a scalable architecture.
 
@@ -167,6 +274,7 @@ This work lays the foundation for more inclusive AI systems capable of multiling
 
 \ack This work was submitted as part of the DA 225o Deep Learning course project (Summer 2025), Indian Institute of Science, Bengaluru.
 
+% References
 \bibliographystyle{ecai}
 \begin{thebibliography}{}
 \bibitem{bert} Devlin, J. et al. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. NAACL, 2019.
@@ -174,15 +282,18 @@ This work lays the foundation for more inclusive AI systems capable of multiling
 \bibitem{larson} Larson, S. et al. An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction. EMNLP, 2019.
 \end{thebibliography}
 
+% Team Contributions
 \newpage
 \section*{Team Contributions}
+All team members actively contributed to each stage of the project, including model development, training, evaluation, and documentation. In addition, the following individuals made significant extra efforts in specific areas:
+
 \begin{itemize}
-\item \textbf{Abhishek Gupta}: Training and model implementation
-\item \textbf{Bharat Karthi R K}: Evaluation and result analysis
-\item \textbf{Gayathri Ramasubramaniyam}: Dataset preprocessing
-\item \textbf{Harikrishnan C}: Visualization and charts
-\item \textbf{Indrerjit Singh Chahuan}: Literature review and writing
-\item \textbf{Monika Tyagi}: Model optimization and documentation
+    \item \textbf{Abhishek Gupta}: Led the training workflow and model implementation.
+    \item \textbf{Bharat Karthi R K}: Focused on evaluation framework and detailed result analysis.
+    \item \textbf{Gayathri Ramasubramaniyam}: Took initiative in dataset preprocessing and quality assurance.
+    \item \textbf{Harikrishnan C}: Designed visualizations and comparative performance charts.
+    \item \textbf{Indrerjit Singh Chahuan}: Conducted literature review and contributed extensively to technical writing.
+    \item \textbf{Monika Tyagi}: Played a key role in model optimization and drafting project documentation.
 \end{itemize}
 
 \end{document}
