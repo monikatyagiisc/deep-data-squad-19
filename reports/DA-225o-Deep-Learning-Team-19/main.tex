@@ -70,8 +70,32 @@ We use the \texttt{BertForSequenceClassification} model with 60 intent classes. 
 \begin{itemize}
     \item AdamW optimizer and label smoothing
     \item Step-wise loss tracking
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\linewidth]{final_trainig.jpeg}
+        \caption{Model training setup and tuning strategy}
+    \end{figure}
+
+    \textbf{}
     \item Validation using macro-averaged F1-score, precision, recall
 \end{itemize}
+
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}{0.48\textwidth}
+            \includegraphics[width=\linewidth]{training_matrices_1.jpeg}
+            \caption{Validation Recall and F1-Score}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.48\textwidth}
+            \includegraphics[width=\linewidth]{training_matrices_2.jpeg}
+            \caption{Validation Accuracy and Precision}
+        \end{subfigure}
+        \caption{Validation metrics comparison across configurations}
+        \label{fig:val_metrics}
+    \end{figure}
+
 
 \subsection{Training Pipeline Stages}
 \begin{enumerate}
@@ -82,21 +106,6 @@ We use the \texttt{BertForSequenceClassification} model with 60 intent classes. 
 
 % Model Performance Analysis
 \section{Model Performance Analysis}
-
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{0.48\textwidth}
-        \includegraphics[width=\linewidth]{training_matrices_1.jpeg}
-        \caption{Validation Recall and F1-Score}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.48\textwidth}
-        \includegraphics[width=\linewidth]{training_matrices_2.jpeg}
-        \caption{Validation Accuracy and Precision}
-    \end{subfigure}
-    \caption{Validation metrics comparison across configurations}
-    \label{fig:val_metrics}
-\end{figure}
 
 \subsection{Overall Performance Summary}
 \begin{itemize}
@@ -155,20 +164,12 @@ We use the \texttt{BertForSequenceClassification} model with 60 intent classes. 
     \end{itemize}
 \end{itemize}
 
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}{0.48\textwidth}
-        \includegraphics[width=\linewidth]{training_matrices_3.jpeg}
-        \caption{Training and Validation Loss across Epochs}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.48\textwidth}
-        \includegraphics[width=\linewidth]{final_trainig.jpeg}
-        \caption{Step-wise and Cumulative Loss (extra\_tuned)}
-    \end{subfigure}
-    \caption{Loss metrics across different stages of training}
-    \label{fig:loss_metrics}
-\end{figure}
+    \begin{figure}[H]
+        \centering
+            \includegraphics[width=\linewidth]{training_matrices_3.jpeg}
+        \caption{Loss metrics across different stages of training}
+        \label{fig:loss_metrics}
+    \end{figure}
 
 \subsection{Performance Grade Distribution}
 \begin{itemize}
@@ -176,6 +177,7 @@ We use the \texttt{BertForSequenceClassification} model with 60 intent classes. 
     \item A (Very Good): 2 models (8\%)
     \item All models achieved A-grade or above
 \end{itemize}
+
 
 % Experiments and Results
 \section{Experiments and Results}
@@ -206,12 +208,6 @@ We fine-tuned mBERT on a curated multilingual dataset containing annotated utter
 \textbf{Training Configurations:} We experimented with various configurations to study the impact of batch size, learning rate, and number of epochs. The best model was chosen based on validation F1-score.
 
 \textbf{Regularization Techniques:} Label smoothing helped mitigate overconfidence in predictions, while dropout helped improve generalization.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.8\linewidth]{Tuning.png}
-\caption{Model training setup and tuning strategy}
-\end{figure}
 
 % Evaluation and Results
 \section{Evaluation and Results}
