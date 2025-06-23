@@ -1,0 +1,33 @@
+@startuml
+skinparam backgroundColor white
+skinparam componentStyle rectangle
+skinparam roundcorner 10
+skinparam shadowing true
+
+title Cross-Lingual Intent Classification using BERT
+
+package "Input Text\n(max 128 tokens)" {
+  [English: Book a flight]
+  [Spanish: Reserva un vuelo]
+  [French: Réservez un vol]
+  [Hindi: उड़ान बुक करें]
+}
+
+package "Transformer Backbone\n(mBERT)" {
+  [mBERT]
+}
+
+package "Intent Classifier" {
+  [Dense Layer]
+  [51 Categories\nFlight Booking\nRestaurant\nWeather]
+}
+
+[English: Book a flight] --> [mBERT]
+[Spanish: Reserva un vuelo] --> [mBERT]
+[French: Réservez un vol] --> [mBERT]
+[Hindi: उड़ान बुक करें] --> [mBERT]
+
+[mBERT] --> [Dense Layer]
+[Dense Layer] --> [51 Categories\nFlight Booking\nRestaurant\nWeather]
+
+@enduml
