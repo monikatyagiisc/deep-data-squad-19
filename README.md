@@ -152,12 +152,12 @@ Full list in: requirements.txt
 
 
 ## 🤝 Contributors
-	•	Abhishek Gupta
-	•	Bharat Karthi R K
-    •	Gayathri Ramasubramanian
-	•	Harikrishnan C
-    •	Inderjit Singh Chauhan
-	•	Monika Tyagi
+- **Abhishek Gupta** – abhishekgup1@iisc.ac.in  
+- **Bharat Karthi R K** – barathkarth1@iisc.ac.in  
+- **Gayathri Ramasubramanian** – rgayathri@iisc.ac.in  
+- **Harikrishnan C** – charikrishna@iisc.ac.in  
+- **Inderjit Singh Chauhan** – inderjits@iisc.ac.in  
+- **Monika Tyagi** – monikatyagi@iisc.ac.in
 
 
 
