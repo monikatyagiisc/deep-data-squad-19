@@ -2,6 +2,13 @@
 
 **Mini Project by Team Data Miners**
 
+## 🌐 Live Demo
+
+Try the multilingual intent classification demo here:  
+👉 [Hugging Face Spaces – IntentBert](https://huggingface.co/spaces/charikri/IntentBert#multilingual-intent-classification)
+
+---
+
 ## 📌 Project Overview
 
 Conversational AI systems—such as chatbots, virtual assistants, and automated customer support—must increasingly operate across languages. This project focuses on **Cross-Lingual Intent Classification** using **multilingual BERT (mBERT)** to classify user intents in multiple languages: **English, Spanish, French, and Hindi**.
