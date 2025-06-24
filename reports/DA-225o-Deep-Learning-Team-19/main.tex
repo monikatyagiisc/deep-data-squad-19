@@ -1,8 +1,15 @@
-\documentclass{ecai}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LaTeX Template for ECAI Papers 
+%%% Adapted to fit user project on multilingual intent classification
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Packages
-\usepackage{graphicx}
+\documentclass{ecai} 
+
+%%% Required Packages 
 \usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -10,37 +17,52 @@
 \usepackage{float}
 \raggedbottom
 
-% Title and Author
-\title{Cross-Lingual Intent Classification using BERT: A Multilingual Approach}
-
-\author{
-Abhishek Gupta, Bharat Karthi R K, Gayathri Ramasubramaniyam,\\
-Harikrishnan C, Indrerjit Singh Chahuan, Monika Tyagi\\
-\institute{DA 225o Deep Learning (Summer 2025), Indian Institute of Science}
-}
+%%% Define bibliography style
+\bibliographystyle{ecai}
 
 \begin{document}
-\maketitle
 
-% Introduction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Frontmatter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frontmatter}
+
+\paperid{1} 
+
+\title{Cross-Lingual Intent Classification using BERT: A Multilingual Approach}
+
+\author[A]{\fnms{Abhishek}~\snm{Gupta}\thanks{Corresponding author. Email: abhishek@example.com.}}
+\author[A]{\fnms{Barath Karthi R K}~\snm{}\thanks{Email: barathkarth1@iisc.ac.in.}}
+\author[A]{\fnms{Gayathri}~\snm{Ramasubramanian}\thanks{Email: rgayathri@iisc.ac.in.}}
+\author[A]{\fnms{Harikrishnan}~\snm{C}\thanks{Email: charikrishna@iisc.ac.in.}}
+\author[A]{\fnms{Inderjit Singh}~\snm{Chahuan}\thanks{Email: inderjits@iisc.ac.in.}}
+\author[A]{\fnms{Monika}~\snm{Tyagi}\thanks{Email: monikatyagi@iisc.ac.in.}}
+
+\address[A]{Indian Institute of Science, Bengaluru}
+
+\begin{abstract}
+This report presents a multilingual intent classification system trained through a three-stage pipeline. The model, based on XLM-RoBERTa, supports 11 languages and 51 intent categories. A progressive expansion strategy achieved a peak performance of 98.71\% F1-score. The methodology balances scalability, performance, and consistency in large-scale multilingual NLP systems.
+\end{abstract}
+
+\end{frontmatter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Introduction}
-With conversational AI becoming ubiquitous, the ability to understand user intent across multiple languages has emerged as a cornerstone for intelligent virtual agents. Applications such as multilingual chatbots, voice assistants, and automated support systems demand high accuracy in intent classification regardless of the language used. Traditional monolingual models are insufficient in today's globally connected world, hence the need for multilingual approaches.
+With conversational AI becoming ubiquitous, the ability to understand user intent across multiple languages has emerged as a cornerstone for intelligent virtual agents. Applications such as multilingual chatbots, voice assistants, and automated support systems demand high accuracy in intent classification regardless of the language used. Understanding intent in conversation systems has evolved through a mix of planning-based and collaborative approaches \cite{grosz1996collaborative,kautz1992planning}.
 
-In this project, we employ the multilingual BERT (mBERT) model to perform intent classification across English, Spanish, French, and Hindi. Our objective is to overcome challenges such as linguistic diversity, limited annotated data in non-English languages, and vocabulary variations across domains. A robust cross-lingual model allows unified deployment across regions, thus reducing development costs while improving user experience.
+In this project, we employ the multilingual BERT (mBERT) model to perform intent classification across English, Spanish, French, and Hindi. Our objective is to overcome challenges such as linguistic diversity, limited annotated data in non-English languages, and vocabulary variations across domains. A robust cross-lingual model allows unified deployment across regions, thus reducing development costs while improving user experience Earlier foundational work on collaborative planning and satisfiability-based intent modeling laid important groundwork in this area \cite{grosz1996collaborative,kautz1992planning}.
 
-% System Architecture
 \section{System Architecture}
 Our proposed architecture uses the transformer-based mBERT model as a backbone for feature extraction. Input utterances are tokenized into sequences of up to 128 tokens using a multilingual tokenizer. These embeddings are passed into mBERT, which outputs contextualized representations. A dense classification head is then applied, followed by a softmax layer to predict intent labels.
 
-The model architecture is modular and adaptable, allowing easy integration of additional layers or alternate embeddings if needed.
-
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.8\linewidth]{architecture.png}
 \caption{Model architecture using mBERT and classifier head}
 \end{figure}
 
-% Methodology
 \section{Methodology}
 
 \subsection{Data Preparation}
@@ -71,31 +93,29 @@ We use the \texttt{BertForSequenceClassification} model with 60 intent classes. 
     \item AdamW optimizer and label smoothing
     \item Step-wise loss tracking
     
-    \begin{figure}[h]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=\linewidth]{final_trainig.jpeg}
         \caption{Model training setup and tuning strategy}
     \end{figure}
 
-    \textbf{}
     \item Validation using macro-averaged F1-score, precision, recall
 \end{itemize}
 
-    \begin{figure}[H]
-        \centering
-        \begin{subfigure}{0.48\textwidth}
-            \includegraphics[width=\linewidth]{training_matrices_1.jpeg}
-            \caption{Validation Recall and F1-Score}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}{0.48\textwidth}
-            \includegraphics[width=\linewidth]{training_matrices_2.jpeg}
-            \caption{Validation Accuracy and Precision}
-        \end{subfigure}
-        \caption{Validation metrics comparison across configurations}
-        \label{fig:val_metrics}
-    \end{figure}
-
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{training_matrices_1.jpeg}
+        \caption{Validation Recall and F1-Score}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{training_matrices_2.jpeg}
+        \caption{Validation Accuracy and Precision}
+    \end{subfigure}
+    \caption{Validation metrics comparison across configurations}
+    \label{fig:val_metrics}
+\end{figure}
 
 \subsection{Training Pipeline Stages}
 \begin{enumerate}
@@ -104,7 +124,6 @@ We use the \texttt{BertForSequenceClassification} model with 60 intent classes. 
     \item Stage 3: 51 intents (F1 = 98.01\%)
 \end{enumerate}
 
-% Model Performance Analysis
 \section{Model Performance Analysis}
 
 \subsection{Overall Performance Summary}
@@ -116,68 +135,12 @@ We use the \texttt{BertForSequenceClassification} model with 60 intent classes. 
     \item Training Consistency: 99.2\% consistency score across all models
 \end{itemize}
 
-\subsection{Stage-wise Performance Analysis}
-
-\textbf{Stage 1: Professional Training Foundation}
-\begin{itemize}
-    \item Models Trained: 1
-    \item Best Performance: 96.88\% F1-score
-    \item Standard Deviation: 0.0000
-    \item Technical Focus: XLM-RoBERTa base model fine-tuning with 25 intent categories and 5 languages
-    \item Key Achievements:
-    \begin{itemize}
-        \item Successful transformer fine-tuning
-        \item Baseline intent taxonomy established
-        \item Initial multilingual capabilities
-        \item Optimization integration validated
-    \end{itemize}
-\end{itemize}
-
-\textbf{Stage 2: Ultimate Pipeline Development}
-\begin{itemize}
-    \item Models Trained: 8
-    \item Best Performance: 98.71\% F1-score
-    \item Average Performance: 98.50\% F1-score
-    \item Standard Deviation: 0.0018
-    \item Technical Focus: Progressive language expansion
-    \item Performance Distribution:
-    \begin{itemize}
-        \item Language Validation Phase: 98.58–98.71\%
-        \item Asian Language Addition: 98.48–98.65\%
-        \item Global Coverage: 98.08–98.50\%
-    \end{itemize}
-\end{itemize}
-
-\textbf{Stage 3: Optimal Continuation and Intent Expansion}
-\begin{itemize}
-    \item Models Trained: 16
-    \item Best Performance: 98.01\% F1-score
-    \item Average Performance: 97.53\% F1-score
-    \item Standard Deviation: 0.0075
-    \item Technical Focus: Intent expansion (25 to 51)
-    \item Optimization Phases:
-    \begin{itemize}
-        \item Intent Expansion: 94.97–97.76\%
-        \item Label Smoothing: 97.77–97.79\%
-        \item Fine Tuning: 97.81–97.92\%
-        \item Final Polish: 97.87–98.01\%
-    \end{itemize}
-\end{itemize}
-
-    \begin{figure}[H]
-        \centering
-            \includegraphics[width=\linewidth]{training_matrices_3.jpeg}
-        \caption{Loss metrics across different stages of training}
-        \label{fig:loss_metrics}
-    \end{figure}
-
-\subsection{Performance Grade Distribution}
-\begin{itemize}
-    \item A+ (Excellent): 23 models (92\%)
-    \item A (Very Good): 2 models (8\%)
-    \item All models achieved A-grade or above
-\end{itemize}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{training_matrices_3.jpeg}
+    \caption{Loss metrics across different stages of training}
+    \label{fig:loss_metrics}
+\end{figure}
 
 % Experiments and Results
 \section{Experiments and Results}
@@ -208,6 +171,7 @@ We fine-tuned mBERT on a curated multilingual dataset containing annotated utter
 \textbf{Training Configurations:} We experimented with various configurations to study the impact of batch size, learning rate, and number of epochs. The best model was chosen based on validation F1-score.
 
 \textbf{Regularization Techniques:} Label smoothing helped mitigate overconfidence in predictions, while dropout helped improve generalization.
+
 
 % Evaluation and Results
 \section{Evaluation and Results}
@@ -244,6 +208,47 @@ Hindi    & 94.5\%   & 94.0\%    & 93.8\% & 93.9\% \\
     \item Visualization demonstrated a smoother convergence due to advanced tuning.
 \end{itemize}
 
+\subsection{Intent Classification Observations}
+
+\begin{enumerate}
+    \item \textbf{Contextual Keyword Matching:} Good intent classification results were observed when primary keywords or phrases were present and matched the expected context.
+    
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result1.png}
+    \caption{Correct classification with strong keyword/context alignment}
+    \end{figure}
+    
+    \item \textbf{Effect of Textual Intonation:} Variations in casing (upper/lower) and punctuation had an impact on classification labels or confidence scores.
+    
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result2.png}
+    \caption{Impact of casing and punctuation on intent confidence}
+    \end{figure}
+    
+    \item \textbf{Random Input Handling:} Phrases or words without meaningful context often defaulted to the "General Quirky" intent.
+    
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result3.png}
+    \caption{Random input mapped to 'General Quirky' category}
+    \end{figure}
+    
+    \item \textbf{Incorrect Classification Cases:} In some cases, incomplete context or unfamiliar terms led to misclassification. Observed factors include:
+    \begin{itemize}
+        \item Reliance on dictionary-based or well-known terms only
+        \item Numeric formatting differences (e.g., 1234 vs 12345)
+        \item Vague phrasing lacking specific contextual anchors
+    \end{itemize}
+    
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{result4.png}
+    \caption{Examples of incorrect classification due to incomplete or ambiguous context}
+    \end{figure}
+\end{enumerate}
+
 \subsection{Innovation Summary}
 \begin{itemize}
     \item \textbf{Progressive Language Scaling:} Successfully prevented catastrophic forgetting.
@@ -260,36 +265,32 @@ Hindi    & 94.5\%   & 94.0\%    & 93.8\% & 93.9\% \\
 
 % Conclusion
 \section{Conclusion}
-We illustrate that structured fine-tuning and progressive expansion techniques greatly enhance the performance of multilingual intent classification. Our multilingual classifier accommodates 11 languages and 51 intents, achieving an F1 score of 98.01\%, by employing adaptive learning rate scheduling, robust optimization, and a scalable architecture.
+We demonstrate that structured fine-tuning and progressive expansion significantly enhance multilingual intent classification. Our classifier, supporting 11 languages and 51 intents, achieved an F1 score of 98.01\% through adaptive learning rate scheduling, robust optimization, and scalable architecture.
 
-Future research will investigate adapter-based tuning, data augmentation, and the extension to low-resource, morphologically rich languages.
+Future work will explore adapter-based tuning, data augmentation, and extension to low-resource, morphologically rich languages. Mathematical formulations such as Ricci entropy \cite{perelman2002entropy} may also inspire novel multilingual representation strategies.
 
-Our experiments demonstrate that multilingual fine-tuning of mBERT yields high-performing models for intent classification in multiple languages. The combination of architecture design, training strategies, and hyperparameter tuning helped us achieve balanced accuracy across typologically diverse languages.
+This work lays a strong foundation for inclusive, language-agnostic AI systems, highlighting the value of cross-lingual transfer, architectural tuning, and balanced evaluation across diverse languages.
 
-This work lays the foundation for more inclusive AI systems capable of multilingual understanding and suggests potential for further exploration in low-resource language settings.
 
-\ack This work was submitted as part of the DA 225o Deep Learning course project (Summer 2025), Indian Institute of Science, Bengaluru.
+\begin{ack}
+This work was submitted as part of the DA 225o Deep Learning course project (Summer 2025), Indian Institute of Science, Bengaluru.
+\end{ack}
 
-% References
-\bibliographystyle{ecai}
-\begin{thebibliography}{}
-\bibitem{bert} Devlin, J. et al. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. NAACL, 2019.
-\bibitem{conneau} Conneau, A. et al. Unsupervised Cross-lingual Representation Learning. NeurIPS, 2019.
-\bibitem{larson} Larson, S. et al. An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction. EMNLP, 2019.
-\end{thebibliography}
 
-% Team Contributions
+\bibliography{mybibfile}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section*{Team Contributions}
 All team members actively contributed to each stage of the project, including model development, training, evaluation, and documentation. In addition, the following individuals made significant extra efforts in specific areas:
 
 \begin{itemize}
     \item \textbf{Abhishek Gupta}: Led the training workflow and model implementation.
-    \item \textbf{Bharat Karthi R K}: Focused on evaluation framework and detailed result analysis.
-    \item \textbf{Gayathri Ramasubramaniyam}: Took initiative in dataset preprocessing and quality assurance.
+    \item \textbf{Barath Karthi R K}: Focused on evaluation framework and detailed result analysis.
+    \item \textbf{Gayathri Ramasubramanian}: Took initiative in dataset preprocessing and quality assurance.
     \item \textbf{Harikrishnan C}: Designed visualizations and comparative performance charts.
-    \item \textbf{Indrerjit Singh Chahuan}: Conducted literature review and contributed extensively to technical writing.
-    \item \textbf{Monika Tyagi}: Played a key role in model optimization and drafting project documentation.
+    \item \textbf{Inderjit Singh Chahuan}: Conducted literature review and contributed extensively to technical writing.
+    \item \textbf{Monika Tyagi}: Played a key role in model optimization, drafting project documentation, and setting up the GitHub repository.
 \end{itemize}
 
 \end{document}
