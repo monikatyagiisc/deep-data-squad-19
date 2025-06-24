@@ -41,25 +41,45 @@ MASSIVE is a multilingual dataset for NLU tasks and supports over 50 intents acr
 
 ---
 
+## 📄 Reports and Documentation
+
+- [Final Report (PDF)](https://github.com/monikatyagiisc/deep-data-squad-19/blob/main/reports/Final_Report.pdf)  
+- Architecture diagram: `Documents/architecture.puml`  
+- Training heatmap: `models/model_training_performance_heatmap.png`  
+- Paper assets: `reports/DA-225o-Deep-Learning-Team-19/`
+
+---
+
 ## 📂 Repository Structure
 
 ```
 deep-data-squad-19/
-│
-├── code/                                    
-│   ├── multilingual_intent_classification.ipynb # Main notebook
-├── requirements.txt     # Python dependencies
-├── data/                # Folder for multilingual datasets
+├── code/
+│   └── multilingual_intent_classification.ipynb          # Main notebook
+├── data/                                                 # Multilingual datasets
 │   ├── english.csv
-│   ├── spanish.csv
 │   ├── french.csv
-│   └── hindi.csv
-├── reports/             # Folder for evaluation reports
-├── models/              # Folder for saved model checkpoints
-│   └── mbart_model.pth  # Fine-tuned mBERT model
-└── README.md            # Project documentation
+│   ├── hindi.csv
+│   ├── spanish.csv
+│   └── README.md
+├── Documents/
+│   └── architecture.puml                                 # UML architecture diagram
+├── models/                                               # Saved model checkpoints & performance visuals
+│   ├── mbart_model.pth
+│   ├── model_training_performance_heatmap.png
+│   └── README.md
+├── reports/                                              # Evaluation reports and LaTeX paper
+│   ├── Abstract.pdf
+│   ├── Final_Report.pdf
+│   └── DA-225o-Deep-Learning-Team-19/
+│       ├── architecture.png
+│       ├── f1_chart.png
+│       ├── main.tex
+│       ├── mybibfile.bib
+│       └── Tuning.png
+├── README.md                                             # Project documentation
+└── requiremets.txt                                       # Python dependencies
 ```
----
 
 ## 🔧 Installation
 

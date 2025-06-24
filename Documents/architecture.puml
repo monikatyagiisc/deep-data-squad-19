@@ -1,4 +1,4 @@
-@startuml
+@startuml  "Cross-Lingual Intent Classification using BERT"
 skinparam backgroundColor white
 skinparam componentStyle rectangle
 skinparam roundcorner 10
