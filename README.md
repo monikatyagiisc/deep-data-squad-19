@@ -32,6 +32,15 @@ We fine-tune a transformer-based model (BERT) to accurately detect user intent a
 
 ---
 
+## 📚 Dataset
+
+This project leverages the **MASSIVE dataset** provided by Amazon Science:  
+👉 [Hugging Face – MASSIVE Dataset](https://huggingface.co/datasets/AmazonScience/massive)
+
+MASSIVE is a multilingual dataset for NLU tasks and supports over 50 intents across 51 languages, making it an ideal resource for multilingual intent classification.
+
+---
+
 ## 📂 Repository Structure
 
 ```
