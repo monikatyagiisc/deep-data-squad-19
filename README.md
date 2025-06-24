@@ -43,9 +43,6 @@ MASSIVE is a multilingual dataset for NLU tasks and supports over 50 intents acr
 
 ## 📄 Reports and Documentation
 
-- [Final Report (PDF)](https://github.com/monikatyagiisc/deep-data-squad-19/blob/main/reports/Final_Report.pdf)
-
-
 - [Final Report (PDF)](https://github.com/monikatyagiisc/deep-data-squad-19/blob/main/reports/Final_Report.pdf)  
 - [Shared Spreadsheet – Team Documentation](https://indianinstituteofscience-my.sharepoint.com/:x:/g/personal/rgayathri_iisc_ac_in/ER1sFJFsbsFLj66COTgWDYoBy5lkDJKdJZZ77cQ8MIeHsg?e=UK7NUV&ovuser=6f15cd97-f6a7-41e3-b2c5-ad4193976476%2Cmonikatyagi%40iisc.ac.in&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI1MC8yNTA2MDIwNjYxMiIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D)   
 - Architecture diagram: `Documents/architecture.puml`  
