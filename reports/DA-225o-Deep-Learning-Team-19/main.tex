@@ -34,7 +34,7 @@
 
 \title{Cross-Lingual Intent Classification using BERT: A Multilingual Approach}
 
-\author[A]{\fnms{Abhishek}~\snm{Gupta}\thanks{Corresponding author. Email: abhishek@example.com.}}
+\author[A]{\fnms{Abhishek}~\snm{Gupta}\thanks{Corresponding author. Email: abhishekgup1@iisc.ac.in.}}
 \author[A]{\fnms{Barath Karthi R K}~\snm{}\thanks{Email: barathkarth1@iisc.ac.in.}}
 \author[A]{\fnms{Gayathri}~\snm{Ramasubramanian}\thanks{Email: rgayathri@iisc.ac.in.}}
 \author[A]{\fnms{Harikrishnan}~\snm{C}\thanks{Email: charikrishna@iisc.ac.in.}}
@@ -44,7 +44,7 @@
 \address[A]{Indian Institute of Science, Bengaluru}
 
 \begin{abstract}
-This report presents a multilingual intent classification system trained through a three-stage pipeline. The model, based on XLM-RoBERTa, supports 11 languages and 51 intent categories. A progressive expansion strategy achieved a peak performance of 98.71\% F1-score. The methodology balances scalability, performance, and consistency in large-scale multilingual NLP systems.
+This report presents a multilingual intent classification system trained through a three-stage pipeline. The model, based on XLM-RoBERTa, supports 51 languages and 60 intent categories. A progressive expansion strategy achieved a peak performance of 98.71\% F1-score. The methodology balances scalability, performance, and consistency in large-scale multilingual NLP systems.
 \end{abstract}
 
 \end{frontmatter}
@@ -52,7 +52,7 @@ This report presents a multilingual intent classification system trained through
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction}
-With conversational AI becoming ubiquitous, accurately understanding user intent across multiple languages has become vital for virtual agents such as multilingual chatbots and voice assistants. This requires robust intent classification that generalizes across linguistic variations and data-scarce languages. Foundational work on collaborative planning and satisfiability-based modeling has informed early approaches to intent understanding \cite{grosz1996collaborative,kautz1992planning}. In this project, we employ a multilingual BERT-based model (mBERT) to address challenges including vocabulary mismatch, low-resource data availability, and semantic diversity. By training on a multilingual corpus covering English, Spanish, French, and Hindi (within a broader set of 11 languages), we aim to build a unified, scalable intent classifier. Such models reduce system fragmentation and improve user experience across regions.
+With conversational AI becoming ubiquitous, accurately understanding user intent across multiple languages has become vital for virtual agents such as multilingual chatbots and voice assistants. This requires robust intent classification that generalizes across linguistic variations and data-scarce languages. Foundational work on collaborative planning and satisfiability-based modeling has informed early approaches to intent understanding \cite{grosz1996collaborative,kautz1992planning}. In this project, we employ a multilingual BERT-based model (mBERT) to address challenges including vocabulary mismatch, low-resource data availability, and semantic diversity. By training on a multilingual corpus covering English, Spanish, French, and Hindi (within a broader set of 51 languages), we aim to build a unified, scalable intent classifier. Such models reduce system fragmentation and improve user experience across regions.
 
 \section{System Architecture}
 Our proposed architecture uses the transformer-based mBERT model as a backbone for feature extraction. Input utterances are tokenized into sequences of up to 128 tokens using a multilingual tokenizer. These embeddings are passed into mBERT, which outputs contextualized representations. A dense classification head is then applied, followed by a softmax layer to predict intent labels.
@@ -64,6 +64,7 @@ Our proposed architecture uses the transformer-based mBERT model as a backbone f
 \end{figure}
 
 \section{Methodology}
+We followed a structured six-step process for the design, training, and deployment of our multilingual intent classification model
 
 \subsection{Data Preparation}
 \begin{itemize}
@@ -227,13 +228,7 @@ Hindi    & 94.5\%   & 94.0\%    & 93.8\% & 93.9\% \\
     \caption{Impact of casing and punctuation on intent confidence}
     \end{figure}
     
-    \item \textbf{Random Input Handling:} Phrases or words without meaningful context often defaulted to the "General Quirky" intent.
-    
-    \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\linewidth]{result3.png}
-    \caption{Random input mapped to 'General Quirky' category}
-    \end{figure}
+   
     
     \item \textbf{Incorrect Classification Cases:} In some cases, incomplete context or unfamiliar terms led to misclassification. Observed factors include:
     \begin{itemize}
@@ -269,7 +264,10 @@ We demonstrate that structured fine-tuning and progressive expansion significant
 
 Future work will explore adapter-based tuning, data augmentation, and extension to low-resource, morphologically rich languages. Mathematical formulations such as Ricci entropy \cite{perelman2002entropy} may also inspire novel multilingual representation strategies.
 
-This work lays a strong foundation for inclusive, language-agnostic AI systems, highlighting the value of cross-lingual transfer, architectural tuning, and balanced evaluation across diverse languages. For full implementation details, refer to the open-source repository~\cite{deepdatasquad2025}. The multilingual model is also deployed as a demo on Hugging Face Spaces~\cite{intentbert_demo2025}.
+This work lays a strong foundation for inclusive, language-agnostic AI systems, highlighting the value of cross-lingual transfer, architectural tuning, and balanced evaluation across diverse languages. 
+
+Check out the full project in our \href{https://github.com/monikatyagiisc/deep-data-squad-19}{\textbf{open-source repository}}~\cite{deepdatasquad2025}.  
+The multilingual model is also deployed as a demo on \href{https://huggingface.co/spaces/charikri/IntentBert#multilingual-intent-classification}{\textbf{Hugging Face Spaces}}~\cite{intentbert_demo2025}.
 
 
 \begin{ack}
