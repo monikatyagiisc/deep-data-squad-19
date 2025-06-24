@@ -66,7 +66,7 @@ deep-data-squad-19/
 ├── documents/
 │   └── architecture.puml                                 # UML architecture diagram
 ├── models/                                               # Saved model checkpoints & performance visuals
-│   ├── mbart_model.pth
+│   ├── mbart/
 │   ├── model_training_performance_heatmap.png
 │   └── README.md
 ├── reports/                                              # Evaluation reports and LaTeX paper
