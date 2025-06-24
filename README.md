@@ -121,9 +121,9 @@ Full list in: requirements.txt
 ## 🤝 Contributors
 	•	Abhishek Gupta
 	•	Bharat Karthi R K
-    •	Gayathri ramasubramaniyam
+    •	Gayathri Ramasubramanian
 	•	Harikrishnan C
-    •	Indrerjit Singh Chahuan
+    •	Inderjit Singh Chauhan
 	•	Monika Tyagi
 
 
