@@ -63,7 +63,7 @@ deep-data-squad-19/
 │   ├── hindi.csv
 │   ├── spanish.csv
 │   └── README.md
-├── Documents/
+├── documents/
 │   └── architecture.puml                                 # UML architecture diagram
 ├── models/                                               # Saved model checkpoints & performance visuals
 │   ├── mbart_model.pth
