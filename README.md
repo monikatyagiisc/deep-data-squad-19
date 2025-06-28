@@ -1,15 +1,15 @@
-# 🧠 deep-data-squad-19: Cross-Lingual Intent Classification using BERT
+# deep-data-squad-19: Cross-Lingual Intent Classification using BERT
 
 **Mini Project by Team Data Miners**
 
-## 🌐 Live Demo
+## Live Demo
 
 Try the multilingual intent classification demo here:  
-👉 [Hugging Face Spaces – IntentBert](https://huggingface.co/spaces/charikri/IntentBert#multilingual-intent-classification)
+-> [Hugging Face Spaces – IntentBert](https://huggingface.co/spaces/charikri/IntentBert#multilingual-intent-classification)
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 Conversational AI systems—such as chatbots, virtual assistants, and automated customer support—must increasingly operate across languages. This project focuses on **Cross-Lingual Intent Classification** using **multilingual BERT (mBERT)** to classify user intents in multiple languages: **English, Spanish, French, and Hindi**.
 
@@ -17,7 +17,7 @@ We fine-tune a transformer-based model (BERT) to accurately detect user intent a
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 - Classify user intents using pre-trained **mBERT**.
 - Address challenges like:
@@ -32,16 +32,16 @@ We fine-tune a transformer-based model (BERT) to accurately detect user intent a
 
 ---
 
-## 📚 Dataset
+## Dataset
 
 This project leverages the **MASSIVE dataset** provided by Amazon Science:  
-👉 [Hugging Face – MASSIVE Dataset](https://huggingface.co/datasets/AmazonScience/massive)
+-> [Hugging Face – MASSIVE Dataset](https://huggingface.co/datasets/AmazonScience/massive)
 
 MASSIVE is a multilingual dataset for NLU tasks and supports over 50 intents across 51 languages, making it an ideal resource for multilingual intent classification.
 
 ---
 
-## 📄 Reports and Documentation
+## Reports and Documentation
 
 - [Final Report (PDF)](https://github.com/monikatyagiisc/deep-data-squad-19/blob/main/reports/Final_Report.pdf)  
 - [Shared Spreadsheet – Team Documentation](https://indianinstituteofscience-my.sharepoint.com/:x:/g/personal/rgayathri_iisc_ac_in/ER1sFJFsbsFLj66COTgWDYoBy5lkDJKdJZZ77cQ8MIeHsg?e=UK7NUV&ovuser=6f15cd97-f6a7-41e3-b2c5-ad4193976476%2Cmonikatyagi%40iisc.ac.in&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI1MC8yNTA2MDIwNjYxMiIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D)   
@@ -51,7 +51,7 @@ MASSIVE is a multilingual dataset for NLU tasks and supports over 50 intents acr
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```
 deep-data-squad-19/
@@ -82,7 +82,7 @@ deep-data-squad-19/
 └── requiremets.txt                                       # Python dependencies
 ```
 
-## 🔧 Installation
+## Installation
 
 1. **Clone the repository**:
 
@@ -109,7 +109,7 @@ cd deep-data-squad-19
 
 ---
 
-## 🚀 Usage
+## Usage
 
 Launch Jupyter Notebook and run the classification pipeline:
 
@@ -124,18 +124,18 @@ The notebook includes steps for:
 Ensure your dataset files (english.csv, spanish.csv, etc.) are placed inside the data/ folder.
 
 
-## 📊 Evaluation Metrics
+## Evaluation Metrics
 
 We use the following performance metrics to evaluate the model for each language:
-	•	✅ Accuracy
-	•	📍 Precision
-	•	🔁 Recall
-	•	🏅 F1-Score
+	•	Accuracy
+	•	Precision
+	•	Recall
+	•	F1-Score
 
 This helps assess mBERT’s cross-lingual understanding and intent detection capability.
 
 
-## 🧪 Dependencies
+## Dependencies
 
 The project uses the following libraries:
 	•	transformers
@@ -148,7 +148,7 @@ The project uses the following libraries:
 Full list in: requirements.txt
 
 
-## 🤝 Contributors
+## Contributors
 - **Abhishek Gupta** – abhishekgup1@iisc.ac.in  
 - **Bharat Karthi R K** – barathkarth1@iisc.ac.in  
 - **Gayathri Ramasubramanian** – rgayathri@iisc.ac.in  
@@ -158,16 +158,16 @@ Full list in: requirements.txt
 
 
 
-## 📜 License
+## License
 
 This project is for educational and academic use. For any external or commercial usage, please contact the authors.
 
 
 
-## 🌐 Acknowledgments
+## Acknowledgments
 
 Special thanks to:
-	•	Hugging Face 🤗 for the transformers library
+	•	Hugging Face for the transformers library
 	•	BERT multilingual pre-trained models
 	•	Jupyter & open-source community
 
